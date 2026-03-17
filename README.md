@@ -41,3 +41,22 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 # 설치 확인
 kubectl version --client
 ```
+
+### AWS 인증 설정
+
+AWS 인증 설정 (Credentials)
+Terraform이 내 AWS 계정에 접속해서 리소스를 만들 수 있게 "열쇠"를 줘야 합니다.
+
+AWS Console 접속 → IAM 서비스 이동.
+
+사용자(User) 생성 후 Access Key와 Secret Access Key를 발급받습니다. (권한은 AdministratorAccess 권한이 필요합니다.)
+
+터미널에 아래 명령어를 입력하고 정보를 넣습니다.
+```
+Bash
+aws configure
+# AWS Access Key ID [None]: 발급받은 키 입력
+# AWS Secret Access Key [None]: 발급받은 비밀키 입력
+# Default region name [None]: ap-northeast-2 (서울)
+# Default output format [None]: json
+```
