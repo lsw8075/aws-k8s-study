@@ -62,5 +62,7 @@ aws configure
 
 ```
 ### Terraform apply 이후
-
+```
+Bash
 aws eks update-kubeconfig --region ap-northeast-2 --name {kihoon-eks-cluster}
+```
