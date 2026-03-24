@@ -59,4 +59,8 @@ aws configure
 # AWS Secret Access Key [None]: 발급받은 비밀키 입력
 # Default region name [None]: ap-northeast-2 (서울)
 # Default output format [None]: json
+
 ```
+### Terraform apply 이후
+
+aws eks update-kubeconfig --region ap-northeast-2 --name {kihoon-eks-cluster}
