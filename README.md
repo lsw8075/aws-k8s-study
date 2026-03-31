@@ -66,3 +66,18 @@ aws configure
 Bash
 aws eks update-kubeconfig --region ap-northeast-2 --name {kihoon-eks-cluster}
 ```
+
+
+```
+# 1. init (provider 버전 선언 변경했으므로 반드시 재실행)
+terraform init
+
+# 2. VPC 먼저 생성
+terraform apply -target=module.vpc
+
+# 3. EKS 생성 (VPC 완료 후)
+terraform apply -target=module.eks
+
+# 4. 나머지 전체 적용 (ALB controller, app 등)
+terraform apply
+```
