@@ -100,5 +100,11 @@ terraform apply
 ```
 Bash
 aws eks update-kubeconfig --region ap-northeast-2 --name {kihoon-eks-cluster}
+
+# node 생성 확인
+kubectl get nodes
+
+# pods 생성 확인
+kubectl get pods -n demo
 ```
 
