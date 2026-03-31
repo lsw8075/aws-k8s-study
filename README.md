@@ -61,13 +61,8 @@ aws configure
 # Default output format [None]: json
 
 ```
-### Terraform apply 이후
-```
-Bash
-aws eks update-kubeconfig --region ap-northeast-2 --name {kihoon-eks-cluster}
-```
 
-
+### Terraform apply 순서
 ```
 # 1. init (provider 버전 선언 변경했으므로 반드시 재실행)
 terraform init
@@ -81,3 +76,11 @@ terraform apply -target=module.eks
 # 4. 나머지 전체 적용 (ALB controller, app 등)
 terraform apply
 ```
+
+
+### Terraform apply 이후
+```
+Bash
+aws eks update-kubeconfig --region ap-northeast-2 --name {kihoon-eks-cluster}
+```
+
