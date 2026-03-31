@@ -77,6 +77,24 @@ terraform apply -target=module.eks
 terraform apply
 ```
 
+### Terraform apply 후 kubectl get nodes 시 Unhandled error 발생 시
+```
+# IAM Policy import
+aws iam list-policies --scope Local \
+  --query "Policies[?PolicyName=='AWSLoadBalancerControllerLatestPolicy'].Arn" \
+  --output text
+
+# Policy import
+terraform import aws_iam_policy.aws_load_balancer_controller_latest \
+  <위에서_나온_ARN>
+
+# Role import
+terraform import module.lbc_irsa_role.aws_iam_role.this[0] \
+  AmazonEKSLoadBalancerControllerRole
+
+terraform apply
+```
+
 
 ### Terraform apply 이후
 ```
